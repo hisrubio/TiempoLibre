@@ -56,13 +56,13 @@
               <div class="">  
                 <ul class="nav navbar-nav sf-menu" data-type="navbar">
                   <li class="active">
-                    <a href="index.html">HOME</a>
+                    <a href="index.php">HOME</a>
                   </li>
                   <li>
-                    <a href="subirActividad.html">Subir Actividad</a>
+                    <a href="subirActividad.php">Subir Actividad</a>
                   </li>
                   <li>
-                    <a href="subirActividad.html">Mi cuenta</a>
+                    <a href="subirActividad.php">Mi cuenta</a>
                   </li>
                 </ul>                           
               </div>
@@ -77,7 +77,7 @@
   =========================================================-->
     <main>        
       <section class="well well4">
-          <div class="container">
+          <div class="container" style="margin-top: 15px; margin-bottom: 30px; border: 1px solid; width: 65%; padding: 15px; background-color: LightGray">
             <div class="row">
               
 <?php
@@ -96,13 +96,15 @@
               </small>
             </h2>
             <img style=\"width:300px; height:200px\" src=\"$linea[imagen]\">
-            <p> $linea[idCategoria]</p>
-            <p class=\"lead\">
+            <p> $linea[idCategoria]</p><br>
+            <label>Objetivos</label><br>
+            <p>
               $linea[objetivos]
             </p>
             <p>
               $linea[idUsuario]
-              <br /><br />
+              <br>
+              <label>Descripcion</label><br>
               $linea[actividad]
             </p>
         ";
