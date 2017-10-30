@@ -56,13 +56,13 @@
               <div class="">  
                 <ul class="nav navbar-nav sf-menu" data-type="navbar">
                   <li class="active">
-                    <a href="index.html">HOME</a>
+                    <a href="index.php">HOME</a>
                   </li>
                   <li>
-                    <a href="subirActividad.html">Subir Actividad</a>
+                    <a href="subirActividad.php">Subir Actividad</a>
                   </li>
                   <li>
-                    <a href="subirActividad.html">Mi cuenta</a>
+                    <a href="subirActividad.php">Mi cuenta</a>
                   </li>
                 </ul>                           
               </div>

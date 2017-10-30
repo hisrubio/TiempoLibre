@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="format-detection" content="telephone=no"/>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>HOME</title>
+    <title>SubirActividad</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -59,10 +59,10 @@
                     <a href="index.php">HOME</a>
                   </li>
                   <li>
-                    <a href="subirActividad.php">Subir Actividad</a>
+                    <a href="subirActividad.html">Subir Actividad</a>
                   </li>
                   <li>
-                    <a href="subirActividad.php">Mi cuenta</a>
+                    <a href="subirActividad.html">Mi cuenta</a>
                   </li>
                 </ul>                           
               </div>
@@ -72,56 +72,34 @@
       </div>  
     </header>
 
-  <!--========================================================
-                            CONTENT
-  =========================================================-->
-    <main>        
-      <section class="well well4">
-          <div class="container" style="margin-top: 15px; margin-bottom: 30px; border: 1px solid; width: 65%; padding: 15px; background-color: LightGray">
-            <div class="row">
-              
-<?php
-  $cla=$_GET['clave'];
+    <div class="container" align="center" style="margin-top: 20px; margin-bottom: 30px; border: 1px solid; width: 55%; padding: 20px; background-color: LightGray">
+      <form name="formActividad" id="formActividad" method="post" action="insactividades.php">
+         <div>
+           <label>Título Actividad</label><br>
+           <input type="text" size="80" name="tituloActividad" id="tituloActividad">
+         </div>
+         <div>
+           <label>Categorias</label>
+           <div style="border: 1px solid; width: 100px;">
+               <input type="checkbox" name="categorias" id="categorias" style="text-align: left;">exterior
+           </div>
+         </div>
+         <div style="padding-left: 0px;">
+           <label>Objetivos</label><br>
+           <textarea cols="80" rows="3" name="objetivos" id="objetivos" placeholder="Ponga los objetivos a mejorar"></textarea>
+         </div>
+         <div>
+           <label>Descripción de la actividad</label><br>
+           <textarea cols="80" rows="15" name="descripcion" id="descripcion" placeholder="Describa de manera extensa la actividad"></textarea>
+         </div>
+         <div>
+           <input type="submit" name="enviar">
+         </div>
+      </form>
+    </div>
 
-  include("conexion.php");
-  $sql = "SELECT * FROM actividades where idActividad=$cla;";
-  $registros=mysqli_query($conexion, $sql);
-  while($linea=mysqli_fetch_array($registros)){
 
-    echo "<div class=\"col-md-12 col-sm-12 col-xs-12\">
-            <h2>
-              $linea[titulo]
-              <small>
-                
-              </small>
-            </h2>
-            <img style=\"width:300px; height:200px\" src=\"$linea[imagen]\">
-            <p> $linea[idCategoria]</p><br>
-            <label>Objetivos</label><br>
-            <p>
-              $linea[objetivos]
-            </p>
-            <p>
-              $linea[idUsuario]
-              <br>
-              <label>Descripcion</label><br>
-              $linea[actividad]
-            </p>
-        ";
-  }
-  mysqli_close($conexion);
-?>
-     
-          </div>
-        </div>        
-      </section>
-      
-    </main>
-
-    <!--========================================================
-                            FOOTER
-  =========================================================-->
-  <footer class="top-border">
+    <footer class="top-border">
     <div  >
       <h6 class="title">Quienes Somos</h6>
       
