@@ -55,10 +55,10 @@
           <nav class="navbar navbar-default navbar-static-top pull-left">            
               <div class="">  
                 <ul class="nav navbar-nav sf-menu" data-type="navbar">
-                  <li class="active">
+                  <li>
                     <a href="index.php">HOME</a>
                   </li>
-                  <li>
+                  <li class="active">
                     <a href="subirActividad.html">Subir Actividad</a>
                   </li>
                   <li>
@@ -79,11 +79,28 @@
            <input type="text" size="80" name="tituloActividad" id="tituloActividad">
          </div>
          <div>
+           <label>Categorias</label><br>
+         <?php
+  include("conexion.php");
+  $sql = "SELECT * FROM categorias;";
+  $registros=mysqli_query($conexion, $sql);
+  while($linea=mysqli_fetch_array($registros)){
+
+    echo "<div class=\"col-md-3 col-sm-4 col-xs-6\" style=\" border: 1px solid; border-color:green; border-radius:3px; width: 105px; margin:3px;\">
+            <input type=\"checkbox\" name=\"categoria\" id=\"categoria\" style=\"text-align: left;\">
+            $linea[categoria]         
+          </div>
+        ";
+  }
+  mysqli_close($conexion);
+
+?></div><br><br>
+        <!-- <div>
            <label>Categorias</label>
            <div style="border: 1px solid; width: 100px;">
                <input type="checkbox" name="categorias" id="categorias" style="text-align: left;">exterior
            </div>
-         </div>
+         </div>-->
          <div style="padding-left: 0px;">
            <label>Objetivos</label><br>
            <textarea cols="80" rows="3" name="objetivos" id="objetivos" placeholder="Ponga los objetivos a mejorar"></textarea>
@@ -98,9 +115,9 @@
       </form>
     </div>
 
-
+    <div align="center">
     <footer class="top-border">
-    <div  >
+    <div>
       <h6 class="title">Quienes Somos</h6>
       
     </div>
