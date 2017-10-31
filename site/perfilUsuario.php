@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="format-detection" content="telephone=no"/>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>HOME</title>
+    <link rel="icon" href="images/pencil.png" type="image/x-icon">
+    <title>Tiempo Libre Zaragoza</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -62,7 +62,7 @@
                     <a href="subirActividad.php">Subir Actividad</a>
                   </li>
                   <li>
-                    <a href="subirActividad.php">Mi cuenta</a>
+                    <a href="miCuenta.php">Mi cuenta</a>
                   </li>
                 </ul>                           
               </div>
@@ -75,49 +75,38 @@
   <!--========================================================
                             CONTENT
   =========================================================-->
+
     <main>        
-      <section class="well well4">
-          <div class="container" style="margin-top: 15px; margin-bottom: 30px; border: 1px solid; width: 65%; padding: 15px; background-color: LightGray">
-            <div class="row">
-              
+       <section class="well well1 well1_ins1">
+         <div class="container center991">
+          <div class="row wow fadeIn" data-wow-duration='2s'>
 <?php
-  $cla=$_GET['clave'];
+$_GET["Usuario"]="juanjo";
+  $usr=$_GET["Usuario"];
 
   include("conexion.php");
-  $sqlA = "SELECT * FROM actividades where idActividad=$cla";
-  $registrosA=mysqli_query($conexion, $sqlA);
-  $sql = "SELECT * FROM actividades as a, actividad_categoria as u, categorias as c where a.idActividad=u.idActividad and c.idCategoria=u.idCategoria and a.idActividad=$cla";
+  $sql = "SELECT * FROM actividades where idUsuario=$usr;";
   $registros=mysqli_query($conexion, $sql);
-  
-  while($lineaA=mysqli_fetch_array($registrosA)){
-    echo "<div class=\"col-md-12 col-sm-12 col-xs-12\">
-            <h2>
-              $lineaA[titulo]
-              <small>
-                
-              </small>
-            </h2>
-            <img style=\"width:300px; height:200px\" src=\"$lineaA[imagen]\">
-            <p>               
-              <label>Usuario</label><br>
-              $lineaA[idUsuario]<br>
-            </p>
-            <p>
-              <label>Categoria</label><br>";
-            
-    while($linea=mysqli_fetch_array($registros)){
-      echo "$linea[categoria]<br>";
-    }
+  while($linea=mysqli_fetch_array($registros)){
 
-      echo "</p>
-            <p>
-              <label>Objetivos</label><br>
-              $lineaA[objetivos]<br>
-              <label>Descripcion</label><br>
-              $lineaA[actividad]
-            </p>
+    echo "<div class=\"col-md-4 col-sm-12 col-xs-12\">
+            <div class=\"thumbnail thumb-shadow\">
+              <img src=\"$linea[imagen]\">
+              <div class=\"caption bg3\">
+                <h3>
+                  $linea[titulo]
+                </h3>
+                <div class=\"wrap\">
+                  <p>
+                    $linea[objetivos]
+                  </p>
+                  <a href=\"verActividades.php?clave=$linea[idActividad]\" class=\"btn-link fa-angle-right\"></a>
+                </div>  
+              </div>
+            </div>              
+          </div>
         ";
-    }
+  }
   mysqli_close($conexion);
 ?>
      
