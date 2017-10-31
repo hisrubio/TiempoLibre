@@ -84,31 +84,40 @@
   $cla=$_GET['clave'];
 
   include("conexion.php");
-  $sql = "SELECT * FROM actividades where idActividad=$cla;";
+  $sqlA = "SELECT * FROM actividades where idActividad=$cla";
+  $registrosA=mysqli_query($conexion, $sqlA);
+  $sql = "SELECT * FROM actividades as a, actividad_categoria as u, categorias as c where a.idActividad=u.idActividad and c.idCategoria=u.idCategoria and a.idActividad=$cla";
   $registros=mysqli_query($conexion, $sql);
-  while($linea=mysqli_fetch_array($registros)){
-
+  
+  while($lineaA=mysqli_fetch_array($registrosA)){
     echo "<div class=\"col-md-12 col-sm-12 col-xs-12\">
             <h2>
-              $linea[titulo]
+              $lineaA[titulo]
               <small>
                 
               </small>
             </h2>
-            <img style=\"width:300px; height:200px\" src=\"$linea[imagen]\">
-            <p> $linea[idCategoria]</p><br>
-            <label>Objetivos</label><br>
-            <p>
-              $linea[objetivos]
+            <img style=\"width:300px; height:200px\" src=\"$lineaA[imagen]\">
+            <p>               
+              <label>Usuario</label><br>
+              $lineaA[idUsuario]<br>
             </p>
             <p>
-              $linea[idUsuario]
-              <br>
+              <label>Categoria</label><br>";
+            
+    while($linea=mysqli_fetch_array($registros)){
+      echo "$linea[categoria]<br>";
+    }
+
+      echo "</p>
+            <p>
+              <label>Objetivos</label><br>
+              $lineaA[objetivos]<br>
               <label>Descripcion</label><br>
-              $linea[actividad]
+              $lineaA[actividad]
             </p>
         ";
-  }
+    }
   mysqli_close($conexion);
 ?>
      
