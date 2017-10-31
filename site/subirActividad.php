@@ -59,10 +59,10 @@
                     <a href="index.php">HOME</a>
                   </li>
                   <li class="active">
-                    <a href="subirActividad.html">Subir Actividad</a>
+                    <a href="subirActividad.php">Subir Actividad</a>
                   </li>
                   <li>
-                    <a href="subirActividad.html">Mi cuenta</a>
+                    <a href="miCuenta.php">Mi cuenta</a>
                   </li>
                 </ul>                           
               </div>
@@ -86,8 +86,8 @@
   $registros=mysqli_query($conexion, $sql);
   while($linea=mysqli_fetch_array($registros)){
 
-    echo "<div class=\"col-md-3 col-sm-4 col-xs-6\" style=\" border: 1px solid; border-color:green; border-radius:3px; width: 105px; margin:3px;\">
-            <input type=\"checkbox\" name=\"categoria\" id=\"categoria\" style=\"text-align: left;\">
+    echo "<div class=\"col-md-3 col-sm-4 col-xs-6\" style=\" border: 1px solid; border-color:green; border-radius:3px; width: 140px; margin:3px;\">
+            <input type=\"checkbox\" name=\"$linea[idCategoria]\" id=\"$linea[idCategoria]\" style=\"text-align: left;\">
             $linea[categoria]         
           </div>
         ";
