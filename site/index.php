@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="format-detection" content="telephone=no"/>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>HOME</title>
+    <link rel="icon" href="images/pencil.png" type="image/x-icon">
+    <title>Tiempo Libre Zaragoza</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -62,7 +62,7 @@
                     <a href="subirActividad.php">Subir Actividad</a>
                   </li>
                   <li>
-                    <a href="subirActividad.php">Mi cuenta</a>
+                    <a href="miCuenta.php">Mi cuenta</a>
                   </li>
                 </ul>                           
               </div>
