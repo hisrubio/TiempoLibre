@@ -88,19 +88,17 @@
   $registrosA=mysqli_query($conexion, $sqlA);
   $sql = "SELECT * FROM actividades as a, actividad_categoria as u, categorias as c where a.idActividad=u.idActividad and c.idCategoria=u.idCategoria and a.idActividad=$cla";
   $registros=mysqli_query($conexion, $sql);
+  $sqlCo = "SELECT * FROM actividades as a, comentarios as c where a.idActividad=c.idActividad and a.idActividad=$cla";
+  $registrosCo=mysqli_query($conexion, $sqlCo);
   
   while($lineaA=mysqli_fetch_array($registrosA)){
     echo "<div class=\"col-md-12 col-sm-12 col-xs-12\">
-            <h2>
+            <h2 style=\"text-align:center\">
               $lineaA[titulo]
-              <small>
-                
-              </small>
-            </h2>
+            </h2><br>
             <img style=\"width:300px; height:200px\" src=\"$lineaA[imagen]\">
             <p>               
-              <label>Usuario</label><br>
-              $lineaA[idUsuario]<br>
+              subida por @$lineaA[idUsuario]<br>
             </p>
             <p>
               <label>Categoria</label><br>";
@@ -118,9 +116,21 @@
             </p>
         ";
     }
-  mysqli_close($conexion);
-?>
-     
+    echo "<label>Comentarios</label><br>";
+    while($lineaCo=mysqli_fetch_array($registrosCo)){
+      echo "<p style=\"text-decoration: underline;\">@$lineaCo[idUsuario]</p>
+            $lineaCo[comentario]<br>";
+    }
+
+    echo"<form name=\"formComentario\" id=\"formComentario\" method=\"post\" action=\"inscomentarios.php?clave=$cla\">
+      <label>Añadir Comentario</label><br>
+      <textarea cols=\"80\" rows=\"3\" name=\"comentario\" id=\"comentario\"></textarea>
+      <div>
+        <input type=\"submit\" name=\"enviar\">
+      </div>
+    </form>";
+    mysqli_close($conexion);
+  ?>
           </div>
         </div>        
       </section>
