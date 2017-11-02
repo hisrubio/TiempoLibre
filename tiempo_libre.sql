@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2017 a las 20:09:48
+-- Tiempo de generación: 02-11-2017 a las 08:08:56
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.10
 
@@ -47,7 +47,9 @@ INSERT INTO `actividades` (`idActividad`, `titulo`, `objetivos`, `actividad`, `i
 (2, 'dos', 'comer', 'see', 'images/page-1_img3.jpg', 0, 0),
 (4, 'Prueba1', 'Objetivos1', 'Descripcion1', 'images/page-1_img3.jpg', 0, 0),
 (5, 'Prueba2', 'Objetivos2', 'Descripcion2', 'images/page-1_img3.jpg', 0, 0),
-(6, 'que buen actividad va a ser esta', 'queremos mejorar el desarrollo de los niÃ±os en sus cosas motrices y esas cosas y pasarlo muy bien y tal y a disfrutar y jajajajajajajaja pues eso que esto es una prueba', 'esto me da igual', 'images/page-1_img3.jpg', 0, 0);
+(6, 'que buen actividad va a ser esta', 'queremos mejorar el desarrollo de los niÃ±os en sus cosas motrices y esas cosas y pasarlo muy bien y tal y a disfrutar y jajajajajajajaja pues eso que esto es una prueba', 'esto me da igual', 'images/page-1_img3.jpg', 0, 0),
+(7, 'PruebaCategorias', 'A ver que tal', 'Esta es una actividad de putis mother ko', 'images/page-1_img3.jpg', 0, 0),
+(8, 'Prueba Categorias', 'objetivo 1, 2 y 3', 'Esta es una actividad de putis', 'images/page-1_img3.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -60,6 +62,15 @@ CREATE TABLE `actividad_categoria` (
   `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Union de las tablas actividades con categorias';
 
+--
+-- Volcado de datos para la tabla `actividad_categoria`
+--
+
+INSERT INTO `actividad_categoria` (`idActividad`, `idCategoria`) VALUES
+(7, 1),
+(7, 2),
+(8, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +81,14 @@ CREATE TABLE `categorias` (
   `idCategoria` int(11) NOT NULL,
   `categoria` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`idCategoria`, `categoria`) VALUES
+(1, 'Exterior'),
+(2, 'Interior');
 
 -- --------------------------------------------------------
 
@@ -93,7 +112,9 @@ CREATE TABLE `comentarios` (
 CREATE TABLE `usuarios` (
   `usuario` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `contraseña` varchar(8) COLLATE utf8_unicode_ci NOT NULL
+  `correo` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `fecNac` date NOT NULL,
+  `password` varchar(8) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -140,13 +161,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `actividades`
 --
 ALTER TABLE `actividades`
-  MODIFY `idActividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idActividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
