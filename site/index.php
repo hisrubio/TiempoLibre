@@ -43,7 +43,7 @@
       <div class="container top-sect">
         <div class="navbar-header">
           <h1 class="navbar-brand">
-            <a data-type='rd-navbar-brand' href="index.html">TIEMPO LIBRE<small>ZARAGOZA</small></a>
+            <a data-type='rd-navbar-brand' href="index.php">TIEMPO LIBRE<small>ZARAGOZA</small></a>
           </h1>
         </div>
       </div>
@@ -97,9 +97,8 @@
                  </div>
                  <div>
                    <label>Contraseña: </label><br>
-                   <input type="text" name="password" id="password" style="border-radius: 5px">
-                 </div>
-                 <div style="text-align: center; margin-top: 10px; ">
+                   <input type="text" name="password" id="password" style="border-radius: 5px"> 
+                 </divtrue                 <div style="text-align: center; margin-top: 10px; ">
                    <input type="submit" name="Enviar datos" style="border-radius: 5px">
                  </div>
               </form>
