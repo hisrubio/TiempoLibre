@@ -22,7 +22,7 @@ if($total==0){
 				//variables de sesion, el valor perdura mientras el usuario navega y hay que poner al principio session_start();
 				$_SESSION['nombreUsuario']=$linea['usuario']; 
 				
-				header("location:perfilUsuario.php");
+				header("location:index2.php");
 			}else{
 				echo "<h2>CLAVE INCORRECTA</h2> Pulse <a href='miCuenta.php'>aqui</a> para continuar.";
 			}
