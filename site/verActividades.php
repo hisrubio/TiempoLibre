@@ -44,7 +44,7 @@
       <div class="container top-sect">
         <div class="navbar-header">
           <h1 class="navbar-brand">
-            <a data-type='rd-navbar-brand' href="index.html">TIEMPO LIBRE<small>ZARAGOZA</small></a>
+            <a data-type='rd-navbar-brand' href="index.php">TIEMPO LIBRE<small>ZARAGOZA</small></a>
           </h1>
         </div>
       </div>
@@ -77,8 +77,7 @@
   =========================================================-->
     <main>        
       <section class="well well4">
-          <div class="container" style="margin-top: 15px; margin-bottom: 30px; border: 1px solid; width: 65%; padding: 15px; background-color: LightGray">
-            <div class="row">
+            <div class="container" align="center" style="margin-top: 15px; margin-bottom: 30px; border: 1px solid; width: 65%; padding: 15px; background-color: LIGHTGREEN; border-radius: 15px; text-align: left">
               
 <?php
   $cla=$_GET['clave'];
@@ -90,23 +89,25 @@
   $registros=mysqli_query($conexion, $sql);
   $sqlCo = "SELECT * FROM actividades as a, comentarios as c where a.idActividad=c.idActividad and a.idActividad=$cla";
   $registrosCo=mysqli_query($conexion, $sqlCo);
-  
+
+  //<img style=\"width:300px; height:200px\" src=\"$lineaA[imagen]\"> Para meter la imagen al ver la actividad; entretitulo e idUsuario
+
   while($lineaA=mysqli_fetch_array($registrosA)){
     echo "<div class=\"col-md-12 col-sm-12 col-xs-12\">
             <h2 style=\"text-align:center\">
               $lineaA[titulo]
             </h2><br>
-            <img style=\"width:300px; height:200px\" src=\"$lineaA[imagen]\">
             <p>               
               subida por @$lineaA[idUsuario]<br>
             </p>
             <p>
-              <label>Categoria</label><br>";
+              <label>Categorias</label><br>";
             
     while($linea=mysqli_fetch_array($registros)){
-      echo "$linea[categoria]<br>";
+      echo "<div style=\"display:inline-block; border:1px solid; border-radius:5px; border-color:white; margin-left:5px; padding:3px; background-color:DODGERBLUE
+      ; color:white\">$linea[categoria]</div>";
     }
-
+      
       echo "</p>
             <p>
               <label>Objetivos</label><br>
@@ -116,23 +117,30 @@
             </p>
         ";
     }
-    echo "<label>Comentarios</label><br>";
+
+    echo "<label>Comentarios</label><br><div style=\"height:200px; overflow:auto; border:1px solid; border-color:black
+    ; background-color: GAINSBORO; padding:4px; overflow-x:hidden\">";
     while($lineaCo=mysqli_fetch_array($registrosCo)){
-      echo "<p style=\"text-decoration: underline;\">@$lineaCo[idUsuario]</p>
-            $lineaCo[comentario]<br>";
+      echo "<div style=\"border: 1px solid; border-radius:7px; padding:5px; border-color:grey; background-color:LIGHTGRAY\"><p style=\"text-decoration: underline;\">@$lineaCo[idUsuario]</p>
+            $lineaCo[comentario]</div><br>";
+
+
     }
 
-    echo"<form name=\"formComentario\" id=\"formComentario\" method=\"post\" action=\"inscomentarios.php?clave=$cla\">
+    echo"</div><form name=\"formComentario\" id=\"formComentario\" method=\"post\" action=\"inscomentarios.php?clave=$cla\">
       <label>Añadir Comentario</label><br>
-      <textarea cols=\"80\" rows=\"3\" name=\"comentario\" id=\"comentario\"></textarea>
+      <textarea cols=\"50\" rows=\"3\" name=\"comentario\" id=\"comentario\"></textarea>
       <div>
-        <input type=\"submit\" name=\"enviar\">
+        <input type=\"submit\" name=\"Añadir\" value=\"Añadir\">
       </div>
     </form>";
     mysqli_close($conexion);
-  ?>
-          </div>
-        </div>        
+  
+    echo"</div>"
+    ?>
+
+      </div>        
+
       </section>
       
     </main>

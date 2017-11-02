@@ -86,7 +86,7 @@
   $registros=mysqli_query($conexion, $sql);
   while($linea=mysqli_fetch_array($registros)){
 
-    echo "<div class=\"col-md-4 col-sm-12 col-xs-12\">
+    echo "<div class=\"col-md-4 col-sm-12 col-xs-12\" style=\"margin-bottom:20px;\">
             <div class=\"thumbnail thumb-shadow\">
               <img src=\"$linea[imagen]\">
               <div class=\"caption bg3\">
