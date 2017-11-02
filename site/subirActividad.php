@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+ <?php
+      header ('Content-type: text/html; charset=utf-8');
+    ?>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
