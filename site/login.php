@@ -15,7 +15,7 @@ $registros=mysqli_query($conexion, $sql);
 $total=mysqli_num_rows($registros);
 
 if($total==0){
-		echo "<h2>USUARIO NO EXISTE</h2> Pulse <a href='miCuenta.php'>aqui</a> para continuar.";
+		echo "<h2>USUARIO NO EXISTE</h2> Pulse <a href='index.php'>aqui</a> para continuar.";
 	}else{
 		while ($linea=mysqli_fetch_array($registros)) {
 			if($linea['password']==$psw){
@@ -24,7 +24,7 @@ if($total==0){
 				
 				header("location:index2.php");
 			}else{
-				echo "<h2>CLAVE INCORRECTA</h2> Pulse <a href='miCuenta.php'>aqui</a> para continuar.";
+				echo "<h2>CLAVE INCORRECTA</h2> Pulse <a href='index.php'>aqui</a> para continuar.";
 			}
 		}
 	}
