@@ -1,12 +1,15 @@
 <?php 
 // Recuperamos datos del formulario
+session_start();
+
 $tit=$_POST['tituloActividad'];
 $obj=$_POST['objetivos'];
 $des=$_POST['descripcion'];
+$usr=$_SESSION['nombreUsuario'];
 
 include("conexion.php");
 
-$sql="INSERT INTO actividades(titulo, objetivos, actividad, imagen) VALUES ('$tit','$obj', '$des', 'images/page-1_img3.jpg')";
+$sql="INSERT INTO actividades(titulo, objetivos, actividad, imagen,idUsuario) VALUES ('$tit','$obj', '$des', 'images/page-1_img3.jpg','$usr')";
 
 mysqli_query($conexion, $sql) or die("Error en la consulta de insercion $sql");
 
