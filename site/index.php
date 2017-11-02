@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="format-detection" content="telephone=no"/>
     <link rel="icon" href="images/pencil.png" type="image/x-icon">
-    <title>Tiempo Libre Zaragoza</title>
+    <title>Mi cuenta</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -21,7 +21,6 @@
     <!--JS-->
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.min.js"></script>
-    
 
 
     <!--[if lt IE 9]>
@@ -49,79 +48,68 @@
         </div>
       </div>
 
-
-      <div id="stuck_container" class="stuck_container">
-        <div class="container">   
-          <nav class="navbar navbar-default navbar-static-top pull-left">            
-              <div class="">  
-                <ul class="nav navbar-nav sf-menu" data-type="navbar">
-                  <li class="active">
-                    <a href="index.php">HOME</a>
-                  </li>
-                  <li>
-                    <a href="subirActividad.php">Subir Actividad</a>
-                  </li>
-                  <li>
-                    <a href="miCuenta.php">Mi cuenta</a>
-                  </li>
-                </ul>                           
-              </div>
-          </nav>   
-        </div>
-
-      </div>  
+ 
     </header>
-
-  <!--========================================================
-                            CONTENT
-  =========================================================-->
-
-    <main>        
-       <section class="well well1 well1_ins1">
-         <div class="container center991">
-          <div class="row wow fadeIn" data-wow-duration='2s'>
-<?php
-  include("conexion.php");
-  $sql = "SELECT * FROM actividades;";
-  $registros=mysqli_query($conexion, $sql);
-  while($linea=mysqli_fetch_array($registros)){
-
-    echo "<div class=\"col-md-4 col-sm-12 col-xs-12\" style=\"margin-bottom:20px;\">
-            <div class=\"thumbnail thumb-shadow\">
-              <img src=\"$linea[imagen]\">
-              <div class=\"caption bg3\">
-                <h3>
-                  $linea[titulo]
-                </h3>
-                <div class=\"wrap\">
-                  <p>
-                    $linea[objetivos]
-                  </p>
-                  <a href=\"verActividades.php?clave=$linea[idActividad]\" class=\"btn-link fa-angle-right\"></a>
-                </div>  
-              </div>
-            </div>              
+    <div class="top-border">
+    <div class="container center">
+      <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-10 inline" style="margin-top: 20px; margin-bottom: 30px; margin-left: 50px;">
+          <div>
+            <p>Inicio de sesión: </p>
           </div>
-        ";
-  }
-  mysqli_close($conexion);
-?>
-     
+          <div  style=" border: 2px solid; padding: 20px; background-color: aqua; border-color: yellow; border-radius: 10px;">
+            <form name="login" id="login" method="post" action="login.php">
+               <div>
+                 <label>Nombre de Usuario: </label><br>
+                 <input type="text" size="34px" name="usuario" id="usuario" style="border-radius: 5px">
+               </div>
+               <div>
+                 <label>Contraseña: </label><br>
+                 <input type="password" size="34px" name="contraseña" id="contraseña" style="border-radius: 5px">
+               </div>
+               <div style="text-align: center; margin-top: 10px; ">
+                 <input type="submit" name="Iniciar Sesión" style="border-radius: 5px">
+               </div>
+            </form>
           </div>
-        </div>        
-      </section>
-      
-    </main>
-
-    <!--========================================================
-                            FOOTER
-  =========================================================-->
-  <footer class="top-border">
-    <div  >
-      <h6 class="title">Quienes Somos</h6>
-      
-    </div>
-  </footer>  
+        </div>
+        <div class="col-md-5 col-sm-5 col-xs-10 inline" style="margin-top: 20px; margin-bottom: 30px; margin-left: 50px;">
+          <div>
+            <p>Registrarse: </p>
+          </div>
+            <div style=" border: 2px solid; padding: 20px; background-color: aqua; border-color: yellow; border-radius: 10px;">
+              <form name="formUsuario" id="formUsuario" method="post" action="insusuarios.php">
+                 <div>
+                   <label>Nombre de Usuario: </label><br>
+                   <input type="text" name="nombreUsuario" id="nombreUsuario" style="border-radius: 5px">
+                 </div>
+                 <div>
+                   <label>Nombre y Apellidos: </label><br>
+                   <input type="text" size="32" name="nombreApellidos" id="nombreApellidos" style="border-radius: 5px">
+                 </div>
+                 <div>
+                   <label>Correo Electrónico: </label><br>
+                   <input type="email" size="32" name="correoElectronico" id="correoElectronico" style="border-radius: 5px">
+                 </div>
+                 <div>
+                   <label>Fecha de Nacimiento: </label><br>
+                   <input type="date" name="fecNac" id="fecNac" style="height: 30px; width: 140px; border-radius: 5px">
+                 </div>
+                 <div>
+                   <label>Contraseña: </label><br>
+                   <input type="text" name="password" id="password" style="border-radius: 5px">
+                 </div>
+                 <div style="text-align: center; margin-top: 10px; ">
+                   <input type="submit" name="Enviar datos" style="border-radius: 5px">
+                 </div>
+              </form>
+            </div>
+          </div>
+        
+      </div>
+    </div>  
+    </div> 
+    <div align="center"> 
       
   <footer class="top-border">
 
