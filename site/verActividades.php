@@ -89,13 +89,14 @@
   $registros=mysqli_query($conexion, $sql);
   $sqlCo = "SELECT * FROM actividades as a, comentarios as c where a.idActividad=c.idActividad and a.idActividad=$cla";
   $registrosCo=mysqli_query($conexion, $sqlCo);
+
   //<img style=\"width:300px; height:200px\" src=\"$lineaA[imagen]\"> Para meter la imagen al ver la actividad; entretitulo e idUsuario
+
   while($lineaA=mysqli_fetch_array($registrosA)){
     echo "<div class=\"col-md-12 col-sm-12 col-xs-12\">
             <h2 style=\"text-align:center\">
               $lineaA[titulo]
             </h2><br>
-            
             <p>               
               subida por @$lineaA[idUsuario]<br>
             </p>
@@ -116,6 +117,7 @@
             </p>
         ";
     }
+
     echo "<label>Comentarios</label><br><div style=\"height:200px; overflow:auto; border:1px solid; border-color:black
     ; background-color: GAINSBORO; padding:4px; overflow-x:hidden\">";
     while($lineaCo=mysqli_fetch_array($registrosCo)){
@@ -138,6 +140,7 @@
     ?>
 
       </div>        
+
       </section>
       
     </main>
