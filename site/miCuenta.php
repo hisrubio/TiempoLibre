@@ -21,7 +21,6 @@
     <!--JS-->
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/rd-smoothscroll.min.js"></script>
 
 
     <!--[if lt IE 9]>
@@ -81,11 +80,11 @@
             <form name="login" id="login" method="post" action="login.php">
                <div>
                  <label>Nombre de Usuario: </label><br>
-                 <input type="text" size="34px" name="nombreUsuario" id="nombreUsuario" style="border-radius: 5px">
+                 <input type="text" size="34px" name="usuario" id="usuario" style="border-radius: 5px">
                </div>
                <div>
                  <label>Contraseña: </label><br>
-                 <input type="password" size="34px" name="password" id="password" style="border-radius: 5px">
+                 <input type="password" size="34px" name="contraseña" id="contraseña" style="border-radius: 5px">
                </div>
                <div style="text-align: center; margin-top: 10px; ">
                  <input type="submit" name="Iniciar Sesión" style="border-radius: 5px">
@@ -95,7 +94,7 @@
         </div>
         <div class="col-md-5 col-sm-5 col-xs-10 inline" style="margin-top: 20px; margin-bottom: 30px; margin-left: 50px;">
           <div>
-            <p>Regitrarse: </p>
+            <p>Registrarse: </p>
           </div>
             <div style=" border: 2px solid; padding: 20px; background-color: aqua; border-color: yellow; border-radius: 10px;">
               <form name="formUsuario" id="formUsuario" method="post" action="insusuarios.php">

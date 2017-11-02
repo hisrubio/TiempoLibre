@@ -54,13 +54,13 @@
           <nav class="navbar navbar-default navbar-static-top pull-left">            
               <div class="">  
                 <ul class="nav navbar-nav sf-menu" data-type="navbar">
-                  <li class="active">
+                  <li>
                     <a href="index.php">HOME</a>
                   </li>
                   <li>
                     <a href="subirActividad.php">Subir Actividad</a>
                   </li>
-                  <li>
+                  <li class="active">
                     <a href="miCuenta.php">Mi cuenta</a>
                   </li>
                 </ul>                           
@@ -80,13 +80,18 @@
          <div class="container center991">
           <div class="row wow fadeIn" data-wow-duration='2s'>
 <?php
-$_GET["Usuario"]="juanjo";
-  $usr=$_GET["Usuario"];
+  session_start();
+  $usr=$_SESSION['nombreUsuario'];
 
   include("conexion.php");
-  $sql = "SELECT * FROM actividades where idUsuario=$usr;";
+  $sql = "SELECT * FROM actividades where idUsuario=\"$usr\";";
   $registros=mysqli_query($conexion, $sql);
-  while($linea=mysqli_fetch_array($registros)){
+  $total=mysqli_num_rows($registros);
+
+  if($total==0){
+    echo "<h3>No has subido ninguna actividad</h3>";
+  }else{
+    while($linea=mysqli_fetch_array($registros)){
 
     echo "<div class=\"col-md-4 col-sm-12 col-xs-12\">
             <div class=\"thumbnail thumb-shadow\">
@@ -105,6 +110,7 @@ $_GET["Usuario"]="juanjo";
             </div>              
           </div>
         ";
+    }
   }
   mysqli_close($conexion);
 ?>
