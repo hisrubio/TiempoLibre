@@ -19,8 +19,8 @@ if($total==0){
 	$sql1="INSERT INTO usuarios(usuario, nombre, correo, fecNac, password) VALUES ('$nUsu', '$nApe', '$cor', '$fNac', '$pas')";
 	mysqli_query($conexion, $sql1) or die("Error en la consulta de insercion $sql1");
 	mysqli_close($conexion);
-	header("location:miCuenta.php");
+	header("location:index.php");
 }else{
-	echo "<h2>EL USUARIO YA EXISTE</h2> Pulse <a href='miCuenta.php'>aqui</a> para continuar.";
+	echo "<h2>EL USUARIO YA EXISTE</h2> Pulse <a href='index.php'>aqui</a> para continuar.";
 }
 ?>
