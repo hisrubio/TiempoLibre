@@ -43,7 +43,7 @@
       <div class="container top-sect">
         <div class="navbar-header">
           <h1 class="navbar-brand">
-            <a data-type='rd-navbar-brand' href="index.html">TIEMPO LIBRE<small>ZARAGOZA</small></a>
+            <a data-type='rd-navbar-brand' href="index2.php">TIEMPO LIBRE<small>ZARAGOZA</small></a>
           </h1>
         </div>
       </div>
@@ -55,13 +55,13 @@
               <div class="">  
                 <ul class="nav navbar-nav sf-menu" data-type="navbar">
                   <li>
-                    <a href="index.php">HOME</a>
+                    <a href="index2.php">HOME</a>
                   </li>
                   <li class="active">
                     <a href="subirActividad.php">Subir Actividad</a>
                   </li>
                   <li>
-                    <a href="miCuenta.php">Mi cuenta</a>
+                    <a href="perfilUsuario.php">Mi cuenta</a>
                   </li>
                 </ul>                           
               </div>
