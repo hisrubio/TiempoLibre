@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="format-detection" content="telephone=no"/>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/pencil.png" type="image/x-icon">
     <title>HOME</title>
 
     <!-- Bootstrap -->
@@ -118,8 +118,7 @@
         ";
     }
 
-    echo "<label>Comentarios</label><br><div style=\"height:200px; overflow:auto; border:1px solid; border-color:black
-    ; background-color: GAINSBORO; padding:4px; overflow-x:hidden\">";
+    echo "<label>Comentarios</label><br><div style=\"height:150px; overflow:auto; padding:4px; overflow-x:hidden\">";
     while($lineaCo=mysqli_fetch_array($registrosCo)){
       echo "<div style=\"border: 1px solid; border-radius:7px; padding:5px; border-color:grey; background-color:LIGHTGRAY\"><p style=\"text-decoration: underline;\">@$lineaCo[idUsuario]</p>
             $lineaCo[comentario]</div><br>";

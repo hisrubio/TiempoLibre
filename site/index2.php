@@ -44,7 +44,7 @@
       <div class="container top-sect">
         <div class="navbar-header">
           <h1 class="navbar-brand">
-            <a data-type='rd-navbar-brand' href="index.html">TIEMPO LIBRE<small>ZARAGOZA</small></a>
+            <a data-type='rd-navbar-brand' href="index2.php">TIEMPO LIBRE<small>ZARAGOZA</small></a>
           </h1>
         </div>
       </div>
