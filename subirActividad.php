@@ -80,7 +80,7 @@
       <form name="formActividad" id="formActividad" method="post" action="insactividades.php">
          <div>
            <label>Título Actividad</label><br>
-           <input type="text" class="form-control" size="80" name="tituloActividad" id="tituloActividad">
+           <input type="text" class="form-control" maxlength="25" size="80" name="tituloActividad" id="tituloActividad">
          </div>
          <div><br>
            <label>Categorias</label><br>
@@ -91,7 +91,7 @@
   $registros=mysqli_query($conexion, $sql);
   while($linea=mysqli_fetch_array($registros)){
 
-    echo "<div class=\"col-md-3 col-sm-4 col-xs-12 checkbox\" style=\" border: 1px solid; border-color:green; border-radius:3px; width: 140px; margin:3px;\">
+    echo "<div class=\"col-md-3 col-sm-4 col-xs-12 checkbox\" style=\" border: 1px solid; border-color:green; border-radius:3px; width: 140px; margin:3px; margin-left:15px;\">
             <input type=\"checkbox\" name=\"$linea[idCategoria]\" id=\"$linea[idCategoria]\" style=\"text-align: left;\">
             $linea[categoria]         
           </div>
@@ -109,7 +109,7 @@
          </div>-->
          <div style="padding-left: 0px;">
            <label>Objetivos</label><br>
-           <textarea cols="80" class="form-control" rows="3" name="objetivos" id="objetivos" placeholder="Ponga los objetivos a cumplir"></textarea>
+           <textarea cols="80" class="form-control" rows="3" name="objetivos" id="objetivos" maxlength="160" placeholder="Ponga los objetivos a cumplir"></textarea>
          </div><br>
          <div>
            <label>Descripción de la actividad</label><br>
