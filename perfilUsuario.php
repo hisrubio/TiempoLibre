@@ -127,12 +127,7 @@
     <!--========================================================
                             FOOTER
   =========================================================-->
-  <footer class="top-border">
-    <div  >
-      <h6 class="title">Quienes Somos</h6>
-      
-    </div>
-  </footer>  
+ 
       
   <footer class="top-border">
 
